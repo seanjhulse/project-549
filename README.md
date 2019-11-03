@@ -7,13 +7,13 @@ also by Travis
 2. `git commit -m "The commit message"`
 3. `git push origin master`
 
-## Pulling things from the master repo
+## Pulling things from Sean's repo
 1. `git fetch upstream`
 2. `git checkout master` (if you're already on this branch it might put an error that you can ignore)
 3. `git merge upstream/master` (you may have merge conflicts you need to solve here!!!)
 4. `git push origin master` (this pushes your changes to YOUR remote repo)
 
-## Merging things to the master repo
+## Merging things into Sean's repo
 1. Go to github.com
 2. Create a Pull Request
 3. Let me know over text as a reminder to merge it in
