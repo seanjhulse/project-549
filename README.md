@@ -26,11 +26,11 @@ also by Travis
 # TODO
 
 ### Homepage
-- Display weather (Weather API)
-- Surf report (Spitcast)
-- User location
-- Find activities button
-- Activities (3 to 5 of them)
+- Display weather (Weather API) **TRAVIS**
+- Surf report (Spitcast) 
+- User location **TRAVIS**
+- Find activities button **JIE**
+- Activities (3 to 5 of them) **JIE**
   - Photos
   - Description
   - Hours / Time
@@ -38,6 +38,8 @@ also by Travis
   - Type (outdoor/indoor/group/event)
   - Comments
 - In App advertisement "Add your own activity"
+
+### Activities
 
 ### Profile page
 - User info
