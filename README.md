@@ -52,10 +52,12 @@ also by Travis
 
 # FAQs
 
-## How does User authentication work?
+### How does User authentication work?
 
 https://medium.com/@wintermeyer/authentication-from-scratch-with-rails-5-2-92d8676f6836
 
+### How do all images work on our site?
 
+https://evilmartians.com/chronicles/rails-5-2-active-storage-and-beyond
 
-#
+I mispoke during our meeting. Apparently Rails 5.2 introduced Active Storage! It's a quick and dirty way to store images directly in the database (or something equivalently simple). While *normally* we might avoid this, I think this is a great use-case for this method. So, yay!
