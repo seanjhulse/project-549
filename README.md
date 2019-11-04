@@ -52,11 +52,22 @@ also by Travis
 
 # FAQs
 
+`$` = terminal command
+
 ### How to get this running?
 
-1. `bundle install` # install new libraries
-2. `rails db:migrate` # updates your database with the models
-3. `rails db:seed` # creates some fake data to get started with
+1. `$ bundle install` # install new libraries
+2. `$ rails db:migrate` # updates your database with the models
+3. `$ rails db:seed` # creates some fake data to get started with
+3. `$ rails s -p 3000` # starts server with port 3000
+
+### How do I reset my database?
+
+`$ rails db:migrate:reset`
+
+### How do I edit data in the database directly?
+
+`$ rails console`
 
 ### How does User authentication work?
 
@@ -96,9 +107,7 @@ We just pull it in in the root HTML file: `app/views/layouts/application.html.er
 
 So what about `EventType`? Sean just created a separate field called `event_type_id` and setup a relationship between an `Activity` and an `event_type`. Each `@activity` *has_one* `event_type`. So this is a case where we can't get `@event_type.activities`. Not easily, anyways, but it's still possible with some leg work `Activity.where(:event_type_id => the_id_you_want_to_look_at)`. But we can still get the `EventType` from the `Activity` like `@activity.event_type`.
 
-### I don't understand how the Rails MVC architecture works. Remind me.
-
-Rails is MVC, model view controller, basically follows this pattern:
+### I don't understand how the Rails architecture works. Remind me.
 
 1. User (client) makes a request `GET /activities`
 2. The browser sends the request to the server domain (in dev: localhost:3000)
