@@ -22,12 +22,12 @@
 
 <p>
   <strong>Event type:</strong>
-  <%= @activity.event_type %>
+  <%= @activity.event_type.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @activity.user %>
+  <%= @activity.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |

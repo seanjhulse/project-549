@@ -14,6 +14,11 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
+    if current_user.nil?
+      redirect_to :login, notice: "You must be logged in to create an event"
+    end
+
+    @event_types = EventType.all
     @activity = Activity.new
   end
 
@@ -25,7 +30,8 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(activity_params)
-
+    @activity.user_id = current_user.id
+    
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
@@ -69,6 +75,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:title, :description, :start_time, :end_time, :image, :event_type_id, :user_id)
+      params.require(:activity).permit(:title, :description, :start_time, :end_time, :image, :event_type_id)
     end
 end

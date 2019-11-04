@@ -31,14 +31,15 @@
     <%= form.datetime_select :end_time %>
   </div>
 
-  <div class="field">
-    <%= form.label :event_type_id %>
-    <%= form.text_field :event_type_id %>
+    <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
+
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :event_type_id %>
+    <%= form.collection_select :event_type_id, EventType.all, :id, :name, include_blank: false %>
   </div>
 
   <div class="actions">
