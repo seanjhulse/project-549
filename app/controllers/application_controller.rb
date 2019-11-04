@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   # use this method to restrict users from performing actions on other accounts outside of theirs
   helper_method :user_authorized
   def user_authorized
-    return current_user && @user.id != current_user.id
+    return current_user && @user.id == current_user.id
   end
 end
