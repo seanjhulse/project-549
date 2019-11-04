@@ -52,6 +52,12 @@ also by Travis
 
 # FAQs
 
+### How to get this running?
+
+1. `bundle install` # install new libraries
+2. `rails db:migrate` # updates your database with the models
+3. `rails db:seed` # creates some fake data to get started with
+
 ### How does User authentication work?
 
 https://medium.com/@wintermeyer/authentication-from-scratch-with-rails-5-2-92d8676f6836

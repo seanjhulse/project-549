@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :check_user_auth, only: [:edit, :update, :destroy]
 
   # GET /activities
   # GET /activities.json
@@ -31,7 +32,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.user_id = current_user.id
-    
+
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
@@ -71,6 +72,12 @@ class ActivitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
       @activity = Activity.find(params[:id])
+    end
+
+    def check_user_auth
+      unless current_user && @activity.user_id == current_user.id
+        redirect_to root_url, notice: "You can't make changes to someone else's data"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
