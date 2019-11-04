@@ -21,3 +21,27 @@ also by Travis
 
 ## Creating your own feature branch
 1. `git checkout -b name_of_your_banch`
+
+
+# TODO
+
+### Homepage
+- Display weather (Weather API)
+- Surf report (Spitcast)
+- User location
+- Find activities button
+- Activities (3 to 5 of them)
+  - Photos
+  - Description
+  - Hours / Time
+  - Location
+  - Type (outdoor/indoor/group/event)
+  - Comments
+- In App advertisement "Add your own activity"
+
+### Profile page
+- User info
+- Filter parameters/options?
+
+### Create activity page
+- Activity form fields
