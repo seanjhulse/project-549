@@ -5,11 +5,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <a href="/login">Login</a>
+    <a href="/logout">Logout</a>
+    <a href="/users">Users</a>
+    <a href="/users/new">Create new User Account</a>
+    <a href="/activities">Activities</a>
+    <a href="/activities/new">Create new Activity</a>
     <%= yield %>
   </body>
 </html>

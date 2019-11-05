@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<% if @user.image.attachment %>
+  <%= image_tag @user.image, size: "64"  %>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

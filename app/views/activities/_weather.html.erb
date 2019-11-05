@@ -1,0 +1,8 @@
+<p>Weather is <%= @weather_report['weather'][0]['main'] %> in Los Angeles. Code can be found in app/views/activities/_weather.html.erb</p>
+
+<% 
+''' 
+@weather_report is in a JSON format. It has an Array of weather reports (eg. what if they have two weather reports for one city?)
+But you can assume we only care about the first report. @weather_report.weather[0]
+''' 
+%>
