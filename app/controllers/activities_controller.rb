@@ -2,10 +2,33 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   before_action :check_user_auth, only: [:edit, :update, :destroy]
 
+  # HTTP library that we use
+  require 'net/http'
+
   # GET /activities
   # GET /activities.json
   def index
     @activities = Activity.all
+
+    # GET surf HTTP request
+    surf_url = URI.parse('http://api.spitcast.com/api/county/spots/orange-county/')
+    surf_req = Net::HTTP::Get.new(surf_url.to_s)
+    surf_res = Net::HTTP.start(surf_url.host, surf_url.port) {|http|
+      http.request(surf_req)
+    }
+    @surf_report = JSON.parse(surf_res.body)
+
+
+    
+
+    # GET weather HTTP request
+    weather_url = URI.parse('http://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=' + Rails.application.credentials.weather[:key])
+    weather_req = Net::HTTP::Get.new(weather_url.to_s)
+    weather_res = Net::HTTP.start(weather_url.host, weather_url.port) {|http|
+      http.request(weather_req)
+    }
+    @weather_report = JSON.parse(weather_res.body)
+
   end
 
   # GET /activities/1
