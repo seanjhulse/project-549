@@ -1,0 +1,2 @@
+<p>Weather is <%= convert_from_kelvin_to_fahrenheit(weather_report['main']['temp'].to_f) %> degrees F in <span id="user-county">your area.</span>
+<i class="fas fa-<%= weather(weather_report['main']['temp'].to_f) %>"></i>

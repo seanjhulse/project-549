@@ -1,34 +1,32 @@
-<p>Activities in app/views/activities/_activities.html.erb</p>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>Event type</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col">
+    <div class="activity-container">
+      <div class="activity-top-left">
+        <h2 class="activity-header">New</h2>
+        <span class="activity-text"><%= @new_activity.title %></span>
+      </div>
+      <span class="activity-date"><%= @new_activity.start_time.strftime('%Y-%m-%d') %></span>
+      <% if @new_activity.image.attachment %>
+        <%= image_tag @new_activity.image, class: "activity-image" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col">
+    <div class="activity-container">
+      <div class="activity-top-left">
+        <h2 class="activity-header">Featured</h2>
+        <span class="activity-text"><%= @new_activity.title %></span>
+      </div>
+      <span class="activity-date"><%= @new_activity.start_time.strftime('%Y-%m-%d') %></span>
+      <% if @new_activity.image.attachment %>
+        <%= image_tag @new_activity.image, class: "activity-image" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.title %></td>
-        <td><%= activity.description %></td>
-        <td><%= activity.start_time %></td>
-        <td><%= activity.end_time %></td>
-        <td><%= activity.event_type.name %></td>
-        <td><%= activity.user.name %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Activity', new_activity_path %>
+<% @activities.each do |activity| %>
+  <%= activity.title %>
+  <%= activity.description %>
+  <%= activity.event_type.name %>
+<% end %>
