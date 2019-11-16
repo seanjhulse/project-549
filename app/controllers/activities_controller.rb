@@ -8,27 +8,9 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
-
-    # GET surf HTTP request
-    surf_url = URI.parse('http://api.spitcast.com/api/county/spots/orange-county/')
-    surf_req = Net::HTTP::Get.new(surf_url.to_s)
-    surf_res = Net::HTTP.start(surf_url.host, surf_url.port) {|http|
-      http.request(surf_req)
-    }
-    @surf_report = JSON.parse(surf_res.body)
-
-
-    
-
-    # GET weather HTTP request
-    weather_url = URI.parse('http://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=' + Rails.application.credentials.weather[:key])
-    weather_req = Net::HTTP::Get.new(weather_url.to_s)
-    weather_res = Net::HTTP.start(weather_url.host, weather_url.port) {|http|
-      http.request(weather_req)
-    }
-    @weather_report = JSON.parse(weather_res.body)
-
+    @new_activity = Activity.last
+    @any_activity = Activity.find(rand(1..Activity.count - 1))
+    @activities = Activity.where.not(id: Activity.last)
   end
 
   # GET /activities/1
