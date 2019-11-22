@@ -1,14 +1,25 @@
-<div>
-<h2>The Low Down</h2>
-<div>
-  <!-- USER LOCATION -->
-  <h3>User Report</h3>
-  <%= render 'shared/user_location' %>
-  <!-- WEATHER REPORT -->
-  <h3>Weather Report</h3>
-  <%= render 'shared/weather' %>
-  <!-- SURF REPORT -->
-  <h3>Surf Report</h3>
-  <%= render 'shared/surf' %>
-</div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-inner">
+    <h2 class="sidebar-header">The Low Down</h2>
+    <p class="sidebar-welcome-message">Welcome to The Low Down. We curate this based on user feedback so please reach out to us to let us know things you want to see!</p>
+    <div class="sidebar-sections">
+      <section class="sidebar-section">
+        <!-- USER LOCATION -->
+        <h3 class="sidebar-section-header">User Report</h3>
+        <%= render 'shared/user_location' %>
+      </section >
+
+      <section class="sidebar-section">
+        <!-- WEATHER REPORT -->
+        <h3 class="sidebar-section-header">Weather Report</h3>
+        <%= render 'shared/weather' %>
+      </section>
+
+      <section class="sidebar-section">
+        <!-- SURF REPORT -->
+        <h3 class="sidebar-section-header">Surf Report</h3>
+        <%= render 'shared/surf' %>
+      </section>
+    </div>
+  </div>
 </div>

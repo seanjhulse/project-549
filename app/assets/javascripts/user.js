@@ -1,9 +1,8 @@
 function getPosition(position) {
   url = "http://geocode.xyz/" + position.coords.latitude + "," + position.coords.longitude + "?geoit=json";
   response = JSON.parse(makeRequest(url));
-
   let userCountyElement = document.getElementById('user-location');
-  userCountyElement.innerHTML = response.city;
+  userCountyElement.innerHTML = response.city + ", " + response.statename;
 }
 
 function makeRequest(url) {
