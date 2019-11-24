@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @new_activity = Activity.last
-    @any_activity = Activity.order("RAND()").limit(1)
+    @any_activity = Activity.all.sample(1)
     @activities = Activity.where.not(id: Activity.last)
   end
 
