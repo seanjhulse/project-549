@@ -10,7 +10,7 @@
         <% if @new_activity.image.attachment %>
           <%= image_tag @new_activity.image, class: "activity-image" %>
         <% else %>
-          <img src="https://dummyimage.com/600x400/000/fff.png&text=N/A" class: "activity-image" />
+          <img src="https://dummyimage.com/600x400.png&text=N/A" class="activity-image" />
         <% end %>
       </div>
     </div>
@@ -18,11 +18,13 @@
       <div class="activity-container">
         <div class="activity-top-left">
           <h2 class="activity-header">Featured</h2>
-          <span class="activity-text"><%= @new_activity.title %></span>
+          <span class="activity-text"><%= @any_activity.title %></span>
         </div>
-        <span class="activity-date"><%= @new_activity.start_time.strftime('%Y-%m-%d') %></span>
-        <% if @new_activity.image.attachment %>
-          <%= image_tag @new_activity.image, class: "activity-image" %>
+        <span class="activity-date"><%= @any_activity.start_time.strftime('%Y-%m-%d') %></span>
+        <% if @any_activity.image.attachment %>
+          <%= image_tag @any_activity.image, class: "activity-image" %>
+        <% else %>
+          <img src="https://dummyimage.com/600x400.png&text=N/A" class="activity-image" />
         <% end %>
       </div>
     </div>

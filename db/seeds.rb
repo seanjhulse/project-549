@@ -18,16 +18,12 @@ require 'faker'
 end
 
 # create event types
- 10.times do
- name = Faker::Verb.simple_present
 
-  EventType.create!(name: name)
-  # EventType.create!(name: "Educational")
-  # EventType.create!(name: "Outdoor Activity")
-  # EventType.create!(name: "Indoor Activity")
-  # EventType.create!(name: "Music")
-  # EventType.create!(name: "Excercise")
-end
+EventType.create!(name: "Festival")
+EventType.create!(name: "Outdoors")
+EventType.create!(name: "Indoors")
+EventType.create!(name: "Restaurant")
+EventType.create!(name: "Social")
 
 # create activities
 10.times do
