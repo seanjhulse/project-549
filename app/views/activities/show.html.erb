@@ -1,43 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
+  <strong>Event:</strong>
   <%= @activity.title %>
-</p>
+</h1>
 
-<p>
+<hr class="mb-4">
+<div class="row">
+  <div class="col-lg-8">
+    <div class="activity-container">
+      <div class="activity-top-left">
+      </div>
+      <span class="activity-date"><%= @activity.start_time.strftime('%Y-%m-%d') %></span>
+      <% if @activity.image.attachment %>
+        <%= image_tag @activity.image, class: "activity-image" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+      <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Start Time</h6>
+              <small class="text-muted"><%= @activity.start_time %></small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">End Time</h6>
+              <small class="text-muted"><%= @activity.end_time %></small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Event Type</h6>
+              <small class="text-muted"><%= @activity.event_type.name %></small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">User</h6>
+              <small><%= @activity.user.name %></small>
+            </div>
+          </li>
+          
+        </ul>
+    
+  </div>
+</div>
+
+<hr class="mb-4">
+<h4>
   <strong>Description:</strong>
-  <%= @activity.description %>
-</p>
+  <small><%= @activity.description %></small>
+</h4>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @activity.start_time %>
-</p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @activity.end_time %>
-</p>
 
-<p>
-  <strong>Event type:</strong>
-  <%= @activity.event_type.name %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @activity.user.name %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <% if @activity.image.attached? %>
-    <%= image_tag @activity.image %>
-  <% else %>
-    <%= "No photo." %>
-  <% end %>  
-</p>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>
