@@ -1,6 +1,7 @@
 # project-549
 Activity finder.
-also by Travis
+also by bob
+
 
 ## Adding things to your repo
 1. `git add .`

@@ -18,10 +18,15 @@ require 'faker'
 end
 
 # create event types
-10.times do
-  name = Faker::Verb.simple_present
+ 10.times do
+ name = Faker::Verb.simple_present
 
   EventType.create!(name: name)
+  # EventType.create!(name: "Educational")
+  # EventType.create!(name: "Outdoor Activity")
+  # EventType.create!(name: "Indoor Activity")
+  # EventType.create!(name: "Music")
+  # EventType.create!(name: "Excercise")
 end
 
 # create activities
@@ -32,6 +37,11 @@ end
   end_time = Faker::Date.in_date_period(year: 2019, month: 11)
   event_type_id = Faker::Number.between(from: 1, to: EventType.count)
   user_id = Faker::Number.between(from: 1, to: User.count)
-
+  # title = "Swimming"
+  # description = "Swimming"
+  # start_time = Faker::Date.in_date_period(year: 2019, month: 11)
+  # end_time = Faker::Date.in_date_period(year: 2019, month: 11)
+  # event_type_id = Faker::Number.between(from: 1, to: EventType.count)
+  # user_id = Faker::Number.between(from: 1, to: User.count)
   Activity.create!(title: title, description: description, start_time: start_time, end_time: end_time, event_type_id: event_type_id, user_id: user_id)
 end
