@@ -14,6 +14,8 @@
       <span class="activity-date"><%= @activity.start_time.strftime('%Y-%m-%d') %></span>
       <% if @activity.image.attachment %>
         <%= image_tag @activity.image, class: "activity-image" %>
+      <% else %>
+        <img src="https://dummyimage.com/600x400.png&text=N/A" class="activity-image" />
       <% end %>
     </div>
   </div>
