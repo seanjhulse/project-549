@@ -1,56 +1,63 @@
 <section class="activities-section">
   <div class="row">
     <div class="col">
-      <div class="activity-container">
-        <div class="activity-top-left">
-          <h2 class="activity-header">New</h2>
-          <span class="activity-text"><%= @new_activity.title %></span>
+      <a href="<%= activity_path(@new_activity) %>">
+        <div class="activity-container">
+          <div class="activity-top-left">
+            <h2 class="activity-header">New</h2>
+            <span class="activity-text"><%= @new_activity.title %></span>
+          </div>
+          <span class="activity-date"><%= @new_activity.start_time.strftime('%Y-%m-%d') %></span>
+          <% if @new_activity.image.attachment %>
+            <%= image_tag @new_activity.image, class: "activity-image" %>
+          <% else %>
+            <img src="https://dummyimage.com/600x400.png&text=N/A" class="activity-image" />
+          <% end %>
         </div>
-        <span class="activity-date"><%= @new_activity.start_time.strftime('%Y-%m-%d') %></span>
-        <% if @new_activity.image.attachment %>
-          <%= image_tag @new_activity.image, class: "activity-image" %>
-        <% else %>
-          <img src="https://dummyimage.com/600x400.png&text=N/A" class="activity-image" />
-        <% end %>
-      </div>
+      </a>
     </div>
     <div class="col">
-      <div class="activity-container">
-        <div class="activity-top-left">
-          <h2 class="activity-header">Featured</h2>
-          <span class="activity-text"><%= @any_activity.title %></span>
+      <a href="<%= activity_path(@any_activity) %>">
+        <div class="activity-container">
+          <div class="activity-top-left">
+            <h2 class="activity-header">Featured</h2>
+            <span class="activity-text"><%= @any_activity.title %></span>
+          </div>
+          <span class="activity-date"><%= @any_activity.start_time.strftime('%Y-%m-%d') %></span>
+          <% if @any_activity.image.attachment %>
+            <%= image_tag @any_activity.image, class: "activity-image" %>
+          <% else %>
+            <img src="https://dummyimage.com/600x400.png&text=N/A" class="activity-image" />
+          <% end %>
         </div>
-        <span class="activity-date"><%= @any_activity.start_time.strftime('%Y-%m-%d') %></span>
-        <% if @any_activity.image.attachment %>
-          <%= image_tag @any_activity.image, class: "activity-image" %>
-        <% else %>
-          <img src="https://dummyimage.com/600x400.png&text=N/A" class="activity-image" />
-        <% end %>
-      </div>
+      </a>
     </div>
   </div>
 
-  <h2 class="all-activities-header">All activities</h2>
   <% @activities.each_with_index do |activity, index| %>
   <div class="row">
     <div class="col">
-      <div class="activity-row-container <%= index % 2 == 0 ? 'left' : 'right' %>">
-        <div class="activity-description">
-          <h3 class="small-activity-title"><%= activity.title.truncate(50) %></h3>
-          <%= activity.description %>
-          <%= activity.event_type.name %>
-          <span class="small-activity-date">
-            <%= activity.start_time.strftime('%Y-%m-%d') %>
-          </span>
-        </div>
-        <div class="small-activity-image-container">
-          <% if activity.image.attachment %>
-            <%= image_tag activity.image, class: "small-activity-image" %>
-          <% else %>
-            <img src="https://dummyimage.com/300x300.png&text=N/A" class="small-activity-image" />
-          <% end %>
-        </div>
+      <a class="activity-link" href="<%= activity_path(activity) %>">
+        <div class="activity-row-container <%= index % 2 == 0 ? 'left' : 'right' %>">
+          <div class="activity-description">
+            <h3 class="small-activity-title"><%= activity.title.truncate(50) %></h3>
+            <%= activity.description %>
+            <span class="small-activity-event">
+              <i style="color: <%= event_color(activity.event_type.name) %>;" class="fas <%= event_type(activity.event_type.name) %>"></i>
+            </span>
+            <span class="small-activity-date">
+              <%= activity.start_time.strftime('%Y-%m-%d') %>
+            </span>
+          </div>
+          <div class="small-activity-image-container">
+            <% if activity.image.attachment %>
+              <%= image_tag activity.image, class: "small-activity-image" %>
+            <% else %>
+              <img src="https://dummyimage.com/300x300.png&text=N/A" class="small-activity-image" />
+            <% end %>
+          </div>
       </div>
+      </a>
     </div>
   </div>
   <% end %>

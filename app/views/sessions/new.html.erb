@@ -1,15 +1,14 @@
 <p id="alert"><%= alert %></p>
 <h1>Login</h1>
+<p>Don't have an account? <a href="/users/new">Create one</a></p>
 <%= form_tag sessions_path do |form| %>
-  <div class="field">
-    <%= label_tag :name %>
-    <%= text_field_tag :name %>
+  <div class="form-group">
+    <label for="name">Username</label>
+    <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="Enter username">
   </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password">
   </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 <% end %>

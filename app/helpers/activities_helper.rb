@@ -21,4 +21,36 @@ module ActivitiesHelper
 
     return "meteor"
   end
+
+  def event_type(event)
+    case event
+    when "Indoors"
+      return "fa-home"
+    when "Outdoors"
+      return "fa-hiking"
+    when "Festival"
+      return "fa-music"
+    when "Restaurant"
+      return "fa-utensils"
+    when "Social"
+      return "fa-user-friends"
+    else
+    end
+  end
+
+  def event_color(event)
+    case event
+    when "Indoors"
+      return "black"
+    when "Outdoors"
+      return "green"
+    when "Festival"
+      return "red"
+    when "Restaurant"
+      return "blue"
+    when "Social"
+      return "orange"
+    else
+    end
+  end
 end

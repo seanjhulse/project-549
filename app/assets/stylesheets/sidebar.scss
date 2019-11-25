@@ -7,20 +7,15 @@
   text-align: center;
   font-size: 1.25rem;
   font-weight: bold;
-  color: white;
   padding: 0.5rem;
-  background: #6d42ff;
   text-transform: uppercase;
-  border-bottom: 3px solid #20008c;
+  border-bottom: 3px solid #6d42ff;
 }
 .sidebar-section-header {
   font-size: 0.9rem;
   font-weight: bold;
-  color: white;
-  padding: 0.5rem;
-  background: #b099ff;
   text-transform: uppercase;
-  border-bottom: 3px solid #8966ff;
+  border-bottom: 3px solid #6d42ff;
 }
 .sidebar-section {
   padding: 1rem 0;
@@ -30,40 +25,10 @@
   top: 10px;
 }
 .sidebar-welcome-message {
-  background: #ddd3ff;
   padding: 0.25rem;
-  border: 2px solid #8966ff;
   border-radius: 2px;
 }
-.sidebar-tab {
-  display: none;
-  padding: 0.25rem 0.5rem;
-  background: white;
-  border: 3px solid #6d42ff;
-  border-right: 0;
-  border-radius: 3px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  box-shadow: -1px 1px 14px 2px rgba(0, 0, 0, 0.36);
-  z-index: 999;
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translate(0, -50%);
-  transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
-  i {
-    color: #6d42ff;
-    position: relative;
-    left: 0;
-    transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-  &:hover {
-    cursor: pointer;
-    i {
-      left: -5px;
-    }
-  }
-}
+
 // MOBILE CSS
 @media (max-width: 1000px) {
   .sidebar {

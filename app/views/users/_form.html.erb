@@ -10,23 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <label for="name">Username</label>
+    <input type="text" name="user[name]" class="form-control" id="name" aria-describedby="name" placeholder="Enter username">
   </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="user[password]" class="form-control" id="password" placeholder="Password">
   </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+  <div class="form-group">
+    <label for="password_confirmation">Password Confirmation</label>
+    <input type="password"  name="user[password_confirmation]" class="form-control" id="password_confirmation" placeholder="Password Confirmation">
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 <% end %>

@@ -1,5 +1,6 @@
 .activities-section {
   padding: 0 1rem;
+  margin: 2rem 0;
 }
 .surf-icon {
   width: 100px;
@@ -19,10 +20,13 @@
 }
 .activity-header, .activity-text, .activity-date {
   color: white;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.75);
 }
 .activity-container {
   position: relative;
+  &:hover {
+    box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.333);
+  }
 }
 .activity-top-left {
   position: absolute;
@@ -44,13 +48,17 @@
 }
 .activity-row-container {
   display: flex;
-  background-color: #4721ca2e;
   position: relative;
   margin-top: 0.5rem;
-  border: 3px solid rgba(0,0,0,0.15);
+  border: 2px solid rgba(0,0,0,0.15);
   border-radius: 3px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   &.left {
     flex-direction: row-reverse;
+  }
+  &:hover {
+    border: 2px solid rgba(0,0,0,0.5);
+    box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.333);
   }
 }
 .left {
@@ -59,6 +67,11 @@
     bottom: 1rem;
     right: 1rem;
   }
+  .small-activity-event {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
 }
 .right {
   .small-activity-date {
@@ -66,12 +79,30 @@
     bottom: 1rem;
     left: 1rem;
   }
+  .small-activity-event {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+.activity-link {
+  display: block;
+  width: 100%;
+  &:hover {
+    text-decoration: none;
+  }
 }
 .activity-description {
   position: relative;
   padding: 1rem;
   min-width: 200px;
   width: 100%;
+  color: black;
+
+  &:hover {
+    color: black;
+    border: 0;
+  }
 }
 .small-activity-title {
   text-transform: uppercase;
@@ -104,6 +135,7 @@
   .small-activity-image {
     max-height: 150px;
     width: 100%;
+    height: 100%;
   }
   .activity-description {
     padding-bottom: 3rem;
@@ -115,5 +147,11 @@
     font-size: 11px;
     left: auto !important ;
     right: 1rem;
+  }
+  .small-activity-event {
+    position: absolute;
+    bottom: 1rem;
+    right: auto !important;
+    left: 1rem;
   }
 }
