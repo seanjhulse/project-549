@@ -37,13 +37,16 @@
   <% @activities.each_with_index do |activity, index| %>
   <div class="row">
     <div class="col">
-      <a class="activity-link" href="<%= activity_path(activity) %>">
+      <a class="activity-link event-id-<%= activity.event_type_id %>" data-event-id="<%= activity.event_type_id %>" href="<%= activity_path(activity) %>">
         <div class="activity-row-container <%= index % 2 == 0 ? 'left' : 'right' %>">
           <div class="activity-description">
             <h3 class="small-activity-title"><%= activity.title.truncate(50) %></h3>
             <%= activity.description %>
             <span class="small-activity-event">
               <i style="color: <%= event_color(activity.event_type.name) %>;" class="fas <%= event_type(activity.event_type.name) %>"></i>
+            </span>
+            <span class="small-activity-snooze">
+              <i class="fas fa-clock"></i>
             </span>
             <span class="small-activity-date">
               <%= activity.start_time.strftime('%Y-%m-%d') %>

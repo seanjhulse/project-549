@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require_tree .
 
+window.onload = () => {
+  let snoozeButtons = $('.small-activity-snooze');
+  snoozeButtons.click(event => {
+    event.preventDefault();
+    let eventId = $(event.target).parent().parent().parent().parent().data('event-id');
+    $(`.event-id-${eventId}`).remove();
+  });
+}

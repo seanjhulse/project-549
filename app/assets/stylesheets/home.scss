@@ -12,6 +12,8 @@
 }
 .activity-image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .activity-header {
   font-weight: bold;
@@ -24,6 +26,7 @@
 }
 .activity-container {
   position: relative;
+  height: 100%;
   &:hover {
     box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.333);
   }
